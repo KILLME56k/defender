@@ -60,7 +60,7 @@ class NeedsPermissionMiddleware extends AbstractDefenderMiddleware
     {
         $routeActions = $this->getActions($request);
 
-        $permissions = array_get($routeActions, 'shield', []);
+        $permissions = array_flat($routeActions);
 
         return is_array($permissions) ? $permissions : (array) $permissions;
     }
